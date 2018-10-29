@@ -19,5 +19,6 @@ setup(name='niceplots',
         'niceplots',
         ],
       install_requires=[
+        'adjustText',
       ],
     )
