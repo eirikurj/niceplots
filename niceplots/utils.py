@@ -229,7 +229,7 @@ def horiz_bar(labels, times, header, ts=1, nd=1, size=[5, .5], color='#FFCC00'):
     fig.set_size_inches(width, height)
     fig.savefig('bar_chart.pdf', bbox_inches="tight")
 
-def stacked_plots(xlabel, xdata, data_dict_list, figsize=(12, 10), pad=200, filename='stacks.png', xticks=None, cushion=0.1):
+def stacked_plots(xlabel, xdata, data_dict_list, figsize=(12, 10), pad=200, filename=None, xticks=None, cushion=0.1):
 
     # If it's a dictionary, make it into a list so we can generically loop over it
     if type(data_dict_list) == type({}):
@@ -275,8 +275,8 @@ def stacked_plots(xlabel, xdata, data_dict_list, figsize=(12, 10), pad=200, file
 
     axarr[-1].set_xlabel(xlabel)
     plt.tight_layout()
-    plt.savefig(filename, bbox_inches='tight')
-    # plt.show()
+    if filename:
+        plt.savefig(filename, bbox_inches='tight')
 
     return f, axarr
 
