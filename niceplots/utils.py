@@ -7,6 +7,7 @@ from matplotlib.lines import Line2D
 # Global modules
 import numpy as np
 import random
+from collections import OrderedDict
 
 # 3d-party modules
 from adjustText import adjust_text
@@ -232,7 +233,7 @@ def horiz_bar(labels, times, header, ts=1, nd=1, size=[5, .5], color='#FFCC00'):
 def stacked_plots(xlabel, xdata, data_dict_list, figsize=(12, 10), pad=200, filename=None, xticks=None, cushion=0.1):
 
     # If it's a dictionary, make it into a list so we can generically loop over it
-    if type(data_dict_list) == type({}):
+    if type(data_dict_list) == type({}) or type(data_dict_list) == type(OrderedDict()):
         data_dict_list = [data_dict_list]
 
     data_dict = data_dict_list[0]
